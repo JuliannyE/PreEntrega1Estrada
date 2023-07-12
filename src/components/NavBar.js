@@ -1,3 +1,5 @@
+import Icon from './Icon'
+import Logo from './Logo'
 import './NavBar.css'
 
 const tabs = [
@@ -19,13 +21,7 @@ const tabs = [
   },
 ]
 
-function Icon({ name }) {
-  return <span className="material-symbols-outlined icon">{name}</span>
-}
 
-function Logo() {
-  return <a href="./"><img src="logo.png" alt="logo" /> </a>
-}
 
 function NavBar() {
 
