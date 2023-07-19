@@ -1,6 +1,8 @@
 
 const Logo = () => {
-    return <a href="./"><img src="logo.png" alt="logo" /> </a>
+    return <div>
+        <img src="logo.png" alt="logo" />
+    </div>
 }
 
 export default Logo

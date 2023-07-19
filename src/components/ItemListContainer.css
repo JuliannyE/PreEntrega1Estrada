@@ -1,6 +1,32 @@
 .container {
     background-color: #ededed;
+    height: calc(100vh - 170px);
     display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
     justify-content: center;
+    padding-top: 50px;
+}
+
+.category {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    border: 2px solid #888 ;
+    cursor: pointer;
+}
+
+.categoryName {
+    font-size: large;
     text-align: center;
+}
+
+.categoryName::first-letter {
+    text-transform: capitalize;
+}
+
+.container img {
+    width: 100%;
+    border-bottom: 1px solid #888;
+    height: 250px;
 }

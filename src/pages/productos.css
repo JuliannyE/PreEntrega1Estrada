@@ -1,0 +1,21 @@
+.productContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.productCard {
+    border: 2px solid #888;
+    
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+
+}
+
+.productCard img {
+    width: 100%;    
+    border-bottom: 1px solid #888;
+    height: 250px;
+}
