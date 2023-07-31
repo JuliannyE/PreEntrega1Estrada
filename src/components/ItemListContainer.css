@@ -1,3 +1,10 @@
+.itemListContainerTitle {
+    background-color: white;
+    text-align: center;
+    font-size: large;
+    margin: 10px;
+}
+
 .container {
     background-color: #ededed;
     height: calc(100vh - 170px);

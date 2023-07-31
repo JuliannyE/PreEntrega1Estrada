@@ -10,7 +10,7 @@ export const Category = () => {
 
   return (
     <div >
-      <div className='categoryName'>Categoria {categoryId} </div>
+      <div className='itemListContainerTitle'>Categoria {categoryId} </div>
       <div className='productContainer'>
         {
           productosByCategory.map((p, i) => <ProductCard key={i} producto={p} />)

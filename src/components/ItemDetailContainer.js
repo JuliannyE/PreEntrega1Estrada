@@ -12,12 +12,17 @@ export const ItemDetailContainer = () => {
     const handleAddCart = () => {
         alert("Agregado al carrito")
     }
-    
+
     return (
         <div className='itemDetails'>
             <div className='categoryName'>{nombre} </div>
             <div className='productContainer'>
                 <ProductCard producto={product} />
+            </div>
+            <div className='productDetail'>
+                {
+                    product.detalles
+                }
             </div>
             <div className='buttonCart' onClick={handleAddCart}>
                 <button>Agregar al carrito</button>

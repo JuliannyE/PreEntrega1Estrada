@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export const ProductCard = ({producto}) => {
+export const ProductCard = ({ producto }) => {
   const navigate = useNavigate()
 
   const navigateTo = () => {
@@ -9,11 +9,11 @@ export const ProductCard = ({producto}) => {
   }
   return (
     <div className="productCard" onClick={navigateTo}>
-            <img src={producto.img} alt={producto.alt} />
-            <span>{producto.nombre}</span>
-            <div>
-                <b>{producto.precio.toFixed(2)} </b>
-            </div>
-        </div>
+      <img src={producto.img} alt={producto.alt} />
+      <span>{producto.nombre}</span>
+      <div>
+        <b>{producto.precio.toFixed(2)} </b>
+      </div>
+    </div>
   )
 }
