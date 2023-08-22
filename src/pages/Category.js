@@ -6,14 +6,14 @@ import { useCategory } from '../hooks/useCategory'
 
 export const Category = () => {
   const { categoryId } = useParams()
-  const { productosByCategory } = useCategory(categoryId)
+  const { productsByCategory } = useCategory(categoryId)
 
   return (
     <div >
       <div className='itemListContainerTitle'>Categoria {categoryId} </div>
       <div className='productContainer'>
         {
-          productosByCategory.map((p, i) => <ProductCard key={i} producto={p} />)
+          productsByCategory.map((p, i) => <ProductCard key={i} producto={p} />)
         }
       </div>
     </div>

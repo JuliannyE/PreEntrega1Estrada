@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 import Icon from '../Icon'
 import Logo from '../Logo'
-import { categorias } from '../../productos'
+import { categorias } from '../../seedData'
 
 
 function NavBar() {

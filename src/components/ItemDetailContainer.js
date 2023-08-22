@@ -1,31 +1,56 @@
 import './ItemDetailContainer.css'
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
+
 import { useProduct } from '../hooks/useProduct'
 import { ProductCard } from './ProductCard'
+import { AddItemButton } from './itemDetail/AddItemButton'
+import { ItemDetailQuantity } from './itemDetail/ItemDetailQuantity'
+import { Description } from './itemDetail/Description'
+import { useCartContext } from '../context/useCartContext'
 
 export const ItemDetailContainer = () => {
     const { id } = useParams()
     const { product } = useProduct(id)
-    const { nombre } = product
+    const { addProduct } = useCartContext()
+    const navigate = useNavigate()
+
+    const [quantity, setQuantity] = useState(1)
+    const handleAddQuantity = (qty) => {
+        setQuantity(prev => {
+            const newQty = prev + qty
+            if (newQty < 1) return 1
+            return newQty
+        })
+    }
 
     const handleAddCart = () => {
-        alert("Agregado al carrito")
+        addProduct({ ...product, quantity })
+        setTimeout(() => {
+            alert("Agregado al carrito, rediriendo al carrito")
+            navigate("/cart")
+        }, 1000)
+    }
+
+    if (!product) {
+        return (
+            <div className='itemDetails'>
+                <h1>
+                    Cargando...
+                </h1>
+            </div>
+        )
     }
 
     return (
-        <div className='itemDetails'>
-            <div className='categoryName'>{nombre} </div>
+        <div className='itemDetails'><div className='categoryName'>{product.name} </div>
             <div className='productContainer'>
                 <ProductCard producto={product} />
             </div>
-            <div className='productDetail'>
-                {
-                    product.detalles
-                }
-            </div>
-            <div className='buttonCart' onClick={handleAddCart}>
-                <button>Agregar al carrito</button>
+            <Description product={product} />
+            <div className='buttonCart' >
+                <ItemDetailQuantity quantity={quantity} handleAddQuantity={handleAddQuantity} />
+                <AddItemButton onClick={handleAddCart} />
             </div>
         </div>
     )

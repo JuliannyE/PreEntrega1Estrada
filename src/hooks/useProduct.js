@@ -1,14 +1,16 @@
 import { useEffect, useState } from 'react'
-import { productos } from "../productos";
+import { getProductById } from '../services/productService';
 
+export const useProduct = (productId) => {
+    const [product, setProduct] = useState()
 
-export const useProduct = (productId ) => {
-    const [product, setProduct] = useState(productos[0])
+    const findProduct = async () => {
+        const filter = await getProductById(productId)
+        setProduct(filter)
+    }
 
     useEffect(() => {
-        const filter = productos.find(p => p.id == productId)
-        
-        setProduct(filter)
+       findProduct()
     }, [productId])
 
     return {

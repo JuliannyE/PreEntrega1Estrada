@@ -1,7 +1,7 @@
 import './ItemListContainer.css'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { categorias, productos } from '../productos'
+import { categorias, productos } from '../seedData'
 
 const categoryProduct = categorias.map(category => productos.find(p => p.category === category))
 

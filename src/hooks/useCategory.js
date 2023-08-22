@@ -1,23 +1,20 @@
 import { useEffect, useState } from 'react'
-import { productos } from "../productos";
+import { getProductsByCategory } from '../services/productService'
 
 
 export const useCategory = (category) => {
-    const [productosByCategory, setProductosByCategory] = useState(productos)
+    const [productsByCategory, setProductsByCategory] = useState([])
 
-
-    const buscarProductos = () => {
-        const productosFiltrados = productos.filter(p => p.category === category)
-        setProductosByCategory(productosFiltrados)
+    const buscarProductos = async () => {
+        const productosFiltrados = await getProductsByCategory(category)
+        setProductsByCategory(productosFiltrados)
     }
 
     useEffect(() => {
-
         buscarProductos()
     }, [category])
 
     return {
-        productosByCategory
+        productsByCategory
     }
-
 }

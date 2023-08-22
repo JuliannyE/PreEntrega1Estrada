@@ -10,9 +10,9 @@ export const ProductCard = ({ producto }) => {
   return (
     <div className="productCard" onClick={navigateTo}>
       <img src={producto.img} alt={producto.alt} />
-      <span>{producto.nombre}</span>
+      <span>{producto.name}</span>
       <div>
-        <b>{producto.precio.toFixed(2)} </b>
+        <b>{producto.price.toFixed(2)} </b>
       </div>
     </div>
   )
